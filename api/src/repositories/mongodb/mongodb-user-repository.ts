@@ -1,4 +1,5 @@
 import { UserModel } from '../../models/user-model';
+import { MongodbCurriculumRepository } from './mongodb-curriculum-repository';
 import { 
   UserRepository, 
   CreateDataUser, 
@@ -13,10 +14,6 @@ export class MongodbUserRepository implements UserRepository {
     return userResponse;
   }
   
-  async delete(idUser: string) {
-    await UserModel.deleteOne({ _id: idUser });
-  }
-
   async login({ email }: LoginDataUser) {
     const userResponse = await UserModel.findOne({ email });
     return userResponse;
@@ -33,5 +30,15 @@ export class MongodbUserRepository implements UserRepository {
   async getBySession(token: string) {
     const userResponse = await UserModel.findOne({ token });
     return userResponse;
+  }
+  
+  async delete(idUser: string) {
+    await UserModel.deleteOne({ _id: idUser });
+
+    const mongodbCurriculumRepository = new MongodbCurriculumRepository();
+    const curriculumUser = await mongodbCurriculumRepository.getByIdUser(idUser);
+
+    if(curriculumUser)
+      await mongodbCurriculumRepository.delete(curriculumUser._id); 
   }
 }

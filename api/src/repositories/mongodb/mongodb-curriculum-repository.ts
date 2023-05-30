@@ -1,4 +1,6 @@
 import { CurriculumModel } from '../../models/curriculum-model';
+import { EducationModel } from '../../models/education-model';
+import { ExperienceModel } from '../../models/experience-model';
 import { 
   CurriculumRepository, 
   CreateDataCurriculum,
@@ -18,18 +20,14 @@ export class MongodbCurriculumRepository implements CurriculumRepository {
     await CurriculumModel.updateOne({ _id: idCurriculum }, { ...params });
   }
 
-  async delete(idCurriculum: string) {
-    await CurriculumModel.deleteOne({ _id: idCurriculum });
-  }
-
   async getByIdCurriculum(idCurriculum: string) {
     const curriculumResponse = await CurriculumModel
     .findOne({ _id: idCurriculum })
     .populate('technologies');
-
+    
     return curriculumResponse;
   }
-
+  
   async getByIdUser(idUser: string) {
     const curriculumResponse = await CurriculumModel
     .findOne({ idUser })
@@ -47,5 +45,13 @@ export class MongodbCurriculumRepository implements CurriculumRepository {
     .populate('technologies');
 
     return curriculumsResponse;
+  }
+
+  async delete(idCurriculum: string) {
+    await Promise.all([
+      CurriculumModel.deleteOne({ _id: idCurriculum }),
+      ExperienceModel.deleteMany({ idCurriculum }),
+      EducationModel.deleteMany({ idCurriculum })
+    ]);
   }
 }
