@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
 class InputPassword extends StatefulWidget {
+  final String title;
+  final String placeholder;
+  final TextEditingController controller;
+
   const InputPassword({
     required this.title,
     required this.placeholder,
+    required this.controller,
     super.key,
   });
-
-  final String title;
-  final String placeholder;
 
   @override
   State<InputPassword> createState() => _InputPasswordState();
@@ -41,6 +43,7 @@ class _InputPasswordState extends State<InputPassword> {
         ),
         const SizedBox(height: 8),
         TextField(
+          controller: widget.controller,
           obscureText: !_showPassword,
           style: const TextStyle(
             fontWeight: FontWeight.normal,

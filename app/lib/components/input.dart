@@ -1,15 +1,17 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class Input extends StatefulWidget {
   final String title;
   final String placeholder;
   final IconData? icon;
+  final TextInputType? typeKeyboard;
+  final TextEditingController controller;
 
   const Input({
     required this.title,
     required this.placeholder,
+    required this.controller,
+    this.typeKeyboard,
     this.icon,
     super.key,
   });
@@ -37,6 +39,8 @@ class _InputState extends State<Input> {
         ),
         const SizedBox(height: 8),
         TextField(
+          controller: widget.controller,
+          keyboardType: widget.typeKeyboard,
           style: const TextStyle(
             fontWeight: FontWeight.normal,
             height: 1.25,
