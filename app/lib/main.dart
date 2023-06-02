@@ -11,8 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Dev.CV',
       theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xFF22212C),
         primarySwatch: Colors.blue,
         brightness: Brightness.dark,
         useMaterial3: true,
