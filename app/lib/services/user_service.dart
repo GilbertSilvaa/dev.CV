@@ -1,12 +1,12 @@
 import 'dart:convert';
-import 'package:dev_cv/models/user_model.dart';
-
+import '../../models/user_model.dart';
+import '../services/api_constants.dart';
 import 'package:http/http.dart' as http;
 
-class ApiService {
-  static const String baseUrl = 'https://dev-cv-api.onrender.com';
+class UserService {
+  static String baseUrl = ApiConstants.baseUrl;
 
-  static Future<UserModel> createUser({
+  static Future<UserModel?> create({
     required String name,
     required String email,
     required String password,
@@ -20,11 +20,12 @@ class ApiService {
         body: json.encode(data),
       );
 
-      print(response.body);
-
-      return UserModel.fromJson(jsonDecode(response.body));
+      if (response.statusCode == 201) {
+        return UserModel.fromJson(jsonDecode(response.body));
+      }
     } catch (error) {
       throw Exception('Failed to create user: $error');
     }
+    return null;
   }
 }

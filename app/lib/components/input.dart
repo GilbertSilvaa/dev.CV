@@ -6,6 +6,7 @@ class Input extends StatefulWidget {
   final IconData? icon;
   final TextInputType? typeKeyboard;
   final TextEditingController controller;
+  final String? errorText;
 
   const Input({
     required this.title,
@@ -13,6 +14,7 @@ class Input extends StatefulWidget {
     required this.controller,
     this.typeKeyboard,
     this.icon,
+    this.errorText,
     super.key,
   });
 
@@ -61,6 +63,22 @@ class _InputState extends State<Input> {
                 width: 1.5,
               ),
             ),
+            errorBorder: const OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+              borderSide: BorderSide(
+                color: Color(0xFFF65757),
+                width: 1.5,
+              ),
+            ),
+            focusedErrorBorder: const OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+              borderSide: BorderSide(
+                color: Color(0xFFF65757),
+                width: 2,
+              ),
+            ),
+            errorStyle: const TextStyle(color: Color(0xFFF65757)),
+            errorText: widget.errorText,
             hintStyle: const TextStyle(color: Color(0xF89AA4FF)),
             hintText: widget.placeholder,
             suffixIcon: Icon(

@@ -4,11 +4,13 @@ class InputPassword extends StatefulWidget {
   final String title;
   final String placeholder;
   final TextEditingController controller;
+  final String? errorText;
 
   const InputPassword({
     required this.title,
     required this.placeholder,
     required this.controller,
+    this.errorText,
     super.key,
   });
 
@@ -65,6 +67,22 @@ class _InputPasswordState extends State<InputPassword> {
                 width: 1.5,
               ),
             ),
+            errorBorder: const OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+              borderSide: BorderSide(
+                color: Color(0xFFF65757),
+                width: 1.5,
+              ),
+            ),
+            focusedErrorBorder: const OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+              borderSide: BorderSide(
+                color: Color(0xFFF65757),
+                width: 2,
+              ),
+            ),
+            errorStyle: const TextStyle(color: Color(0xFFF65757)),
+            errorText: widget.errorText,
             hintStyle: const TextStyle(color: Color(0xF89AA4FF)),
             hintText: widget.placeholder,
             suffixIcon: IconButton(
