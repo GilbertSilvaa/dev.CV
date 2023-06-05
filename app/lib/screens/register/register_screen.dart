@@ -79,12 +79,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     if (!validateForm()) return;
 
-    ApiService api = ApiService();
-
     try {
       setState(() => _isLoadingForm = true);
 
-      var response = await api.post(
+      var response = await ApiService.post(
         url: '/user/create',
         headers: {'Content-Type': 'application/json'},
         body: {
@@ -98,6 +96,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
         final user = UserModel.fromJson(response);
         final SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setString('access-token', user.token);
+        prefs.setString('user-name', user.name);
+
+        if (context.mounted) Navigator.of(context).pushNamed('/home');
         return;
       }
 
@@ -160,7 +161,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         controller: _passwordConfirmController,
                         errorText: _passwordConfirmError,
                       ),
-                      const SizedBox(height: 32),
+                      const SizedBox(height: 24),
                       Button(
                         title: 'Cadastre-se',
                         onPressed: onSubmit,

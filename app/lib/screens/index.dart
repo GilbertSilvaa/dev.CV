@@ -17,9 +17,8 @@ class _IndexState extends State<Index> {
     Future(() async {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       String? tokenAccess = prefs.getString('access-token');
-      ApiService api = ApiService();
 
-      var response = await api.post(
+      var response = await ApiService.post(
         url: '/curriculum/user',
         headers: {
           'Content-Type': 'application/json',
@@ -29,12 +28,10 @@ class _IndexState extends State<Index> {
 
       if (response != null && (response['auth'] as bool) == false) {
         debugPrint('não esta autenticado');
-        // ignore: use_build_context_synchronously
-        Navigator.of(context).pushNamed('/login');
+        if (context.mounted) Navigator.of(context).pushNamed('/login');
         return;
       }
-      // ignore: use_build_context_synchronously
-      Navigator.of(context).pushNamed('/home');
+      if (context.mounted) Navigator.of(context).pushNamed('/home');
     });
 
     super.initState();

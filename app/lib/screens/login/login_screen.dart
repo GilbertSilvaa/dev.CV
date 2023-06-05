@@ -60,12 +60,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
     if (!validateForm()) return;
 
-    ApiService api = ApiService();
-
     try {
       setState(() => _isLoadingForm = true);
 
-      var response = await api.post(
+      var response = await ApiService.post(
         url: '/login',
         headers: {'Content-Type': 'application/json'},
         body: {
@@ -78,6 +76,9 @@ class _LoginScreenState extends State<LoginScreen> {
         final user = UserModel.fromJson(response);
         final SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setString('access-token', user.token);
+        prefs.setString('user-name', user.name);
+
+        if (context.mounted) Navigator.of(context).pushNamed('/home');
         return;
       }
 
@@ -128,7 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: _passwordController,
                         errorText: _passwordError,
                       ),
-                      const SizedBox(height: 32),
+                      const SizedBox(height: 24),
                       Button(
                         title: 'Login',
                         onPressed: onSubmit,

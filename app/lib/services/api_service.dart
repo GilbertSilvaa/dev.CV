@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  final String _baseUrl = 'https://dev-cv-api.onrender.com';
+  static const String _baseUrl = 'https://dev-cv-api.onrender.com';
 
-  Future<dynamic> post({
+  static Future<dynamic> post({
     required String url,
     Map<String, String>? headers,
     Object? body,
