@@ -28,10 +28,12 @@ class _IndexState extends State<Index> {
 
       if (response != null && (response['auth'] as bool) == false) {
         debugPrint('não esta autenticado');
-        if (context.mounted) Navigator.of(context).pushNamed('/login');
+        if (context.mounted) {
+          Navigator.of(context).pushReplacementNamed('/login');
+        }
         return;
       }
-      if (context.mounted) Navigator.of(context).pushNamed('/home');
+      if (context.mounted) Navigator.of(context).pushReplacementNamed('/home');
     });
 
     super.initState();

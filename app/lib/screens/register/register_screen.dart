@@ -98,7 +98,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
         prefs.setString('access-token', user.token);
         prefs.setString('user-name', user.name);
 
-        if (context.mounted) Navigator.of(context).pushNamed('/home');
+        if (context.mounted) {
+          Navigator.of(context).pushReplacementNamed('/home');
+        }
         return;
       }
 
