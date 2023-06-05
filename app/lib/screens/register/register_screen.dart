@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../services/api_service.dart';
+import '../../models/user_model.dart';
 import '../../components/input.dart';
 import '../../components/button.dart';
 import '../../components/input_password.dart';
-import '../../services/user_service.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -21,6 +23,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String? _emailError;
   String? _passwordError;
   String? _passwordConfirmError;
+  bool? _isLoadingForm;
 
   @override
   void initState() {
@@ -76,19 +79,37 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     if (!validateForm()) return;
 
-    var response = await UserService.create(
-      name: _nameController.text,
-      email: _emailController.text,
-      password: _passwordController.text,
-    );
+    ApiService api = ApiService();
 
-    if (response == null) {
-      setState(() => _emailError = 'email invalido');
-      return;
+    try {
+      setState(() => _isLoadingForm = true);
+
+      var response = await api.post(
+        url: '/user/create',
+        headers: {'Content-Type': 'application/json'},
+        body: {
+          'name': _nameController.text,
+          'email': _emailController.text,
+          'password': _passwordController.text
+        },
+      );
+
+      if (response['_id'] != null) {
+        final user = UserModel.fromJson(response);
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.setString('access-token', user.token);
+        return;
+      }
+
+      if (response['message'] != null) {
+        setState(() => _emailError = response['message']);
+        return;
+      }
+
+      setState(() => _emailError = 'email inválido');
+    } finally {
+      setState(() => _isLoadingForm = null);
     }
-
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString('access-token', response.token);
   }
 
   @override
@@ -143,6 +164,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Button(
                         title: 'Cadastre-se',
                         onPressed: onSubmit,
+                        isLoading: _isLoadingForm,
                       )
                     ],
                   ),

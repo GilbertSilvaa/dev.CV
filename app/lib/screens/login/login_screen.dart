@@ -1,10 +1,13 @@
-import 'package:dev_cv/screens/register/register_screen.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../components/input.dart';
 import '../../components/button.dart';
 import '../../components/input_password.dart';
-import '../../services/user_service.dart';
+import 'package:dev_cv/screens/register/register_screen.dart';
+
+import '../../models/user_model.dart';
+import '../../services/api_service.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -18,6 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
   late final TextEditingController _passwordController;
   String? _emailError;
   String? _passwordError;
+  bool? _isLoadingForm;
 
   @override
   void initState() {
@@ -55,6 +59,37 @@ class _LoginScreenState extends State<LoginScreen> {
     });
 
     if (!validateForm()) return;
+
+    ApiService api = ApiService();
+
+    try {
+      setState(() => _isLoadingForm = true);
+
+      var response = await api.post(
+        url: '/login',
+        headers: {'Content-Type': 'application/json'},
+        body: {
+          'email': _emailController.text,
+          'password': _passwordController.text
+        },
+      );
+
+      if (response['_id'] != null) {
+        final user = UserModel.fromJson(response);
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.setString('access-token', user.token);
+        return;
+      }
+
+      if (response['message'] != null) {
+        setState(() => _passwordError = response['message']);
+        return;
+      }
+
+      setState(() => _emailError = 'email inválido');
+    } finally {
+      setState(() => _isLoadingForm = null);
+    }
   }
 
   @override
@@ -97,6 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Button(
                         title: 'Login',
                         onPressed: onSubmit,
+                        isLoading: _isLoadingForm,
                       )
                     ],
                   ),
