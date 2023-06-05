@@ -23,7 +23,7 @@ export class LoginController {
       const userResponse = await this.userRepository.login(data);
 
       if(!userResponse) {
-        response.status(400).json({ message: 'invalid email or password' });
+        response.status(400).json({ message: 'email ou senha inválida' });
         return;
       }
 
@@ -33,7 +33,7 @@ export class LoginController {
       });
 
       if(!isPasswordCorrect) {
-        response.status(400).json({ message: 'invalid password' });
+        response.status(400).json({ message: 'senha inválida' });
         return;
       }
 
@@ -60,7 +60,7 @@ export class LoginController {
     try {
       await this.userRepository.logout(request.body.idUser);
       
-      response.status(204).json({ message: 'user logged out successfully' });
+      response.status(204).json({ message: 'usuário deslogado com sucesso' });
     }
     catch(error) {
       response.status(400).json(error);

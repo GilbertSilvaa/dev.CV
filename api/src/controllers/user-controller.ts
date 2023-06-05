@@ -24,7 +24,7 @@ export class UserController {
       const isUserExisting = await this.userRepository.login({ email, password });
 
       if(isUserExisting) {
-        response.status(400).json({ message: 'email already registered' });
+        response.status(400).json({ message: 'email já registrado' });
         return;
       }
 
