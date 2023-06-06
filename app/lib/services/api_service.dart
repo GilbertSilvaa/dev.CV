@@ -15,8 +15,8 @@ class ApiService {
         headers: headers,
         body: body != null ? json.encode(body) : null,
       );
-
       //print(response.statusCode);
+
       return jsonDecode(response.body);
     } catch (error) {
       throw Exception('Failed api request: $error');

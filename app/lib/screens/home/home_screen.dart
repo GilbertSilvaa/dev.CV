@@ -24,9 +24,16 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    final args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, bool>?;
+
     return Scaffold(
       body: Center(
-        child: Text('Boas-vindas, ${_name ?? ''}'),
+        child: Text(
+          args?['isFirstTime'] != null
+              ? 'Boas-vindas, ${_name ?? ''}, first time'
+              : 'Boas-vindas, ${_name ?? ''}',
+        ),
       ),
     );
   }

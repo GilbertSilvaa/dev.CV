@@ -31,9 +31,11 @@ class _IndexState extends State<Index> {
         if (context.mounted) {
           Navigator.of(context).pushReplacementNamed('/login');
         }
-        return;
+      } else {
+        if (context.mounted) {
+          Navigator.of(context).pushReplacementNamed('/home');
+        }
       }
-      if (context.mounted) Navigator.of(context).pushReplacementNamed('/home');
     });
 
     super.initState();

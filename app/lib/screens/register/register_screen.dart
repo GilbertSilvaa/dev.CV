@@ -99,7 +99,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
         prefs.setString('user-name', user.name);
 
         if (context.mounted) {
-          Navigator.of(context).pushReplacementNamed('/home');
+          Navigator.of(context).pushReplacementNamed(
+            '/home',
+            arguments: {'isFirstTime': true},
+          );
         }
         return;
       }
@@ -118,9 +121,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Center(
+      body: Center(
+        child: SingleChildScrollView(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 width: MediaQuery.of(context).size.width * 0.9,

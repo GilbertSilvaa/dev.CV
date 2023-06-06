@@ -98,14 +98,13 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Center(
+      body: Center(
+        child: SingleChildScrollView(
           child: Column(
             children: [
               Container(
                 padding: const EdgeInsetsDirectional.only(top: 40, bottom: 40),
                 width: MediaQuery.of(context).size.width * 0.9,
-                margin: const EdgeInsetsDirectional.only(top: 80),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(28),
                   color: const Color(0xFF2C2A42),
@@ -153,6 +152,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           builder: (context) => const RegisterScreen(),
                         ),
                       );
+
+                      // reseta o formulário quando trocar de tela
+                      setState(() {
+                        _emailError = null;
+                        _passwordError = null;
+                        _emailController.clear();
+                        _passwordController.clear();
+                      });
                     },
                     child: const Text('Cadastre-se aqui'),
                   ),
