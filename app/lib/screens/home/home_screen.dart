@@ -10,16 +10,28 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  late final SharedPreferences prefs;
   String? _name;
 
   @override
   void initState() {
     Future(() async {
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs = await SharedPreferences.getInstance();
       setState(() => _name = prefs.getString('user-name'));
     });
 
     super.initState();
+  }
+
+  int _pageSelected = 0;
+
+  void _onPageTapped(int index) {
+    if (index == 2) {
+      prefs.setString('access-token', '');
+      Navigator.of(context).pushReplacementNamed('/login');
+      return;
+    }
+    setState(() => _pageSelected = index);
   }
 
   @override
@@ -27,14 +39,36 @@ class _HomeState extends State<Home> {
     final args =
         ModalRoute.of(context)!.settings.arguments as Map<String, bool>?;
 
-    return Scaffold(
-      body: Center(
-        child: Text(
-          args?['isFirstTime'] != null
-              ? 'Boas-vindas, ${_name ?? ''}, first time'
-              : 'Boas-vindas, ${_name ?? ''}',
-        ),
-      ),
-    );
+    return args?['isFirstTime'] != null
+        ? Center(
+            child: Text('Boas-vindas, ${_name ?? ''}, first time'),
+          )
+        : Scaffold(
+            body: Center(
+              child: Text(
+                'Boas-vindas, ${_name ?? ''}',
+              ),
+            ),
+            bottomNavigationBar: BottomNavigationBar(
+              unselectedItemColor: const Color(0xFF6C6892),
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.assignment),
+                  label: 'Meu currículo',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.logout, color: Colors.red),
+                  label: 'Sair',
+                ),
+              ],
+              currentIndex: _pageSelected,
+              selectedItemColor: Colors.white,
+              onTap: _onPageTapped,
+            ),
+          );
   }
 }
