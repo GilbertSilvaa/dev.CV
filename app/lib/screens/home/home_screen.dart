@@ -12,6 +12,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   late final SharedPreferences prefs;
   String? _name;
+  int _pageSelected = 0;
 
   @override
   void initState() {
@@ -22,8 +23,6 @@ class _HomeState extends State<Home> {
 
     super.initState();
   }
-
-  int _pageSelected = 0;
 
   void _onPageTapped(int index) {
     if (index == 2) {
