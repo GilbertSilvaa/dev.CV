@@ -1,3 +1,4 @@
+import 'package:dev_cv/screens/home/welcome_screen.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:shared_preferences/shared_preferences.dart';
@@ -39,9 +40,7 @@ class _HomeState extends State<Home> {
         ModalRoute.of(context)!.settings.arguments as Map<String, bool>?;
 
     return args?['isFirstTime'] != null
-        ? Center(
-            child: Text('Boas-vindas, ${_name ?? ''}, first time'),
-          )
+        ? WelcomeScreen(name: _name!)
         : Scaffold(
             body: Center(
               child: Text(
