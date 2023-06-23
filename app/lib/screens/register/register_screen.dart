@@ -50,19 +50,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
     String passwordConfirm = _passwordConfirmController.text;
 
     if (name.isEmpty) {
-      setState(() => _nameError = 'campo obrigatório');
+      setState(() => _nameError = 'Campo obrigatório');
       return false;
     } else if (email.isEmpty) {
-      setState(() => _emailError = 'campo obrigatório');
+      setState(() => _emailError = 'Campo obrigatório');
       return false;
     } else if (password.isEmpty) {
-      setState(() => _passwordError = 'campo obrigatório');
+      setState(() => _passwordError = 'Campo obrigatório');
       return false;
     } else if (passwordConfirm.isEmpty) {
-      setState(() => _passwordConfirmError = 'campo obrigatório');
+      setState(() => _passwordConfirmError = 'Campo obrigatório');
       return false;
     } else if (password != passwordConfirm) {
-      setState(() => _passwordConfirmError = 'senhas divergentes');
+      setState(() => _passwordConfirmError = 'Senhas divergentes');
       return false;
     }
 
@@ -127,11 +127,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
+                padding: const EdgeInsetsDirectional.only(top: 10, bottom: 10),
                 width: MediaQuery.of(context).size.width * 0.9,
                 margin: const EdgeInsetsDirectional.only(top: 50),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(28),
                   color: const Color(0xFF2C2A42),
+                  boxShadow: const [
+                    BoxShadow(
+                      offset: Offset(0, 9),
+                      spreadRadius: -4,
+                      blurRadius: 13,
+                      color: Color.fromRGBO(0, 0, 0, 0.3),
+                    )
+                  ],
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(24),
@@ -167,7 +176,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         controller: _passwordConfirmController,
                         errorText: _passwordConfirmError,
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: 18),
                       Button(
                         title: 'Cadastre-se',
                         onPressed: onSubmit,
@@ -177,6 +186,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ),
               ),
+              const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -185,7 +195,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: const Text('Faça o Login'),
+                    child: const Text(
+                      'Faça o Login',
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
                   ),
                 ],
               )

@@ -1,3 +1,4 @@
+import 'package:dev_cv/screens/home/welcome_screen.dart';
 import 'package:dev_cv/screens/index.dart';
 import 'package:flutter/material.dart';
 import 'package:dev_cv/screens/home/home_screen.dart';
@@ -20,12 +21,19 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         brightness: Brightness.dark,
         useMaterial3: true,
+        dialogTheme: DialogTheme(
+          shape: RoundedRectangleBorder(
+            borderRadius:
+                BorderRadius.circular(8.0), // Define o borderRadius desejado
+          ),
+        ),
       ),
-      initialRoute: '/index',
+      initialRoute: '/home',
       routes: {
         '/index': (context) => const Index(),
         '/login': (context) => const LoginScreen(),
-        '/home': (context) => const Home()
+        '/home': (context) => const Home(),
+        '/welcome': (context) => const WelcomeScreen(name: 'Rafael')
       },
     );
   }

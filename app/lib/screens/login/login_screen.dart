@@ -42,10 +42,10 @@ class _LoginScreenState extends State<LoginScreen> {
     String password = _passwordController.text;
 
     if (email.isEmpty) {
-      setState(() => _emailError = 'campo obrigatório');
+      setState(() => _emailError = 'Campo obrigatório');
       return false;
     } else if (password.isEmpty) {
-      setState(() => _passwordError = 'campo obrigatório');
+      setState(() => _passwordError = 'Campo obrigatório');
       return false;
     }
 
@@ -89,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
         return;
       }
 
-      setState(() => _emailError = 'email inválido');
+      setState(() => _emailError = 'E-mail inválido');
     } finally {
       setState(() => _isLoadingForm = null);
     }
@@ -103,11 +103,19 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             children: [
               Container(
-                padding: const EdgeInsetsDirectional.only(top: 40, bottom: 40),
+                padding: const EdgeInsetsDirectional.only(top: 15, bottom: 15),
                 width: MediaQuery.of(context).size.width * 0.9,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(28),
                   color: const Color(0xFF2C2A42),
+                  boxShadow: const [
+                    BoxShadow(
+                      offset: Offset(0, 9),
+                      spreadRadius: -4,
+                      blurRadius: 13,
+                      color: Color.fromRGBO(0, 0, 0, 0.3),
+                    )
+                  ],
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(24),
@@ -130,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller: _passwordController,
                         errorText: _passwordError,
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: 18),
                       Button(
                         title: 'Login',
                         onPressed: onSubmit,
@@ -140,6 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
+              const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -152,7 +161,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           builder: (context) => const RegisterScreen(),
                         ),
                       );
-
                       // reseta o formulário quando trocar de tela
                       setState(() {
                         _emailError = null;
@@ -161,7 +169,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         _passwordController.clear();
                       });
                     },
-                    child: const Text('Cadastre-se aqui'),
+                    child: const Text(
+                      'Cadastre-se aqui',
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
                   ),
                 ],
               )
