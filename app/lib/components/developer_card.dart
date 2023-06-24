@@ -1,3 +1,4 @@
+import 'package:dev_cv/components/tags_list.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ class DeveloperCard extends StatelessWidget {
         color: const Color(0xFF2C2A42),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -84,32 +85,19 @@ class DeveloperCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                for (int i = 0; i < tags.length && i < 3; i++)
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                        height: 32,
-                        decoration: BoxDecoration(
-                          color: const Color(0xffB49AFF),
-                          borderRadius: BorderRadius.circular(9999),
-                        ),
-                        child: Center(
-                          child: Text(
-                            tags[i].toUpperCase(),
-                            style: const TextStyle(
-                              color: Color(0xff22212C),
-                              fontSize: 12,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+            const TagsList(
+              numOfTechs: 3,
+              techs: [
+                'JavaScript',
+                'JavaScript',
+                'JavaScript',
+                'JavaScript',
+                'JavaScript',
+                'JavaScript',
+                'JavaScript',
+                'JavaScript',
+                'JavaScript',
+                'JavaScript'
               ],
             ),
           ],

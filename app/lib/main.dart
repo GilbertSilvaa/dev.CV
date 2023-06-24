@@ -1,3 +1,6 @@
+import 'package:dev_cv/screens/data/education_view_screen.dart';
+import 'package:dev_cv/screens/data/jobs_view_screen.dart';
+import 'package:dev_cv/screens/data/techs_view_screen.dart';
 import 'package:dev_cv/screens/home/welcome_screen.dart';
 import 'package:dev_cv/screens/index.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +36,10 @@ class MyApp extends StatelessWidget {
         '/index': (context) => const Index(),
         '/login': (context) => const LoginScreen(),
         '/home': (context) => const Home(),
-        '/welcome': (context) => const WelcomeScreen(name: 'Rafael')
+        '/welcome': (context) => const WelcomeScreen(name: 'Rafael'),
+        '/techs': (context) => const Techs(),
+        '/jobs': (context) => const Jobs(),
+        '/education': (context) => const Education(),
       },
     );
   }

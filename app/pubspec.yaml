@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   feather_icons: ^1.2.0
   http: ^0.13.6
+  url_launcher: ^6.1.11
 
 dev_dependencies:
   flutter_test:
