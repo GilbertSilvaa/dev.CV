@@ -14,7 +14,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   late SharedPreferences prefs;
-  final _captions = const [HomeList(), Curriculum()];
+  final _captions = const [HomeList(), Curruculum()];
   String? _name;
   int _pageSelected = 0;
   bool _logout = false;

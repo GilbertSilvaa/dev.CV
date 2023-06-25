@@ -68,10 +68,10 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    const Column(
+                    Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: const [
                         Text(
                           '·  Cadastrar seu currículo',
                           style: TextStyle(
@@ -98,7 +98,9 @@ class WelcomeScreen extends StatelessWidget {
                     Button(title: 'Cadastrar Currículo', onPressed: () {}),
                     const SizedBox(height: 6),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pushReplacementNamed('/home');
+                      },
                       child: const Text(
                         'Quero apenas ver os currículos',
                         style: TextStyle(
