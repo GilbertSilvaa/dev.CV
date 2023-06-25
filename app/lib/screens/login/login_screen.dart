@@ -1,13 +1,12 @@
+import 'package:dev_cv/models/user_model.dart';
+import 'package:dev_cv/services/api_service.dart';
+import 'package:dev_cv/components/button.dart';
+import 'package:dev_cv/components/input.dart';
+import 'package:dev_cv/components/input_password.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../components/input.dart';
-import '../../components/button.dart';
-import '../../components/input_password.dart';
 import 'package:dev_cv/screens/register/register_screen.dart';
-
-import '../../models/user_model.dart';
-import '../../services/api_service.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

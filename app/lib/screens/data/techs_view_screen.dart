@@ -1,8 +1,7 @@
+import 'package:dev_cv/components/developer_technologies.dart';
+import 'package:dev_cv/components/top_button.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
-
-import '../../components/developer_technologies.dart';
-import '../../components/top_button.dart';
 
 class Techs extends StatelessWidget {
   const Techs({super.key});

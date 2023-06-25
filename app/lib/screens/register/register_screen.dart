@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../services/api_service.dart';
-import '../../models/user_model.dart';
-import '../../components/input.dart';
-import '../../components/button.dart';
-import '../../components/input_password.dart';
+import 'package:dev_cv/services/api_service.dart';
+import 'package:dev_cv/models/user_model.dart';
+import 'package:dev_cv/components/button.dart';
+import 'package:dev_cv/components/input.dart';
+import 'package:dev_cv/components/input_password.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});

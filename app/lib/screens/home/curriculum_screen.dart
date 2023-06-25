@@ -1,3 +1,5 @@
+import 'package:dev_cv/components/alert_modal.dart';
+import 'package:dev_cv/components/button.dart';
 import 'package:dev_cv/components/developer_contact_items.dart';
 import 'package:dev_cv/components/developer_infos_list.dart';
 import 'package:dev_cv/components/developer_profile_card.dart';
@@ -5,9 +7,6 @@ import 'package:dev_cv/components/developer_technologies.dart';
 import 'package:dev_cv/components/top_button.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
-
-import '../../components/alert_modal.dart';
-import '../../components/button.dart';
 
 class Curriculum extends StatelessWidget {
   const Curriculum({super.key});
