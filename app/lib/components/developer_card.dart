@@ -7,14 +7,14 @@ class DeveloperCard extends StatelessWidget {
   final String developerName;
   final String position;
   final String location;
-  final List<String> tags;
+  final List<String> techs;
 
   const DeveloperCard({
     required this.avatarImagePath,
     required this.developerName,
     required this.position,
     required this.location,
-    required this.tags,
+    required this.techs,
     super.key,
   });
 
@@ -85,20 +85,9 @@ class DeveloperCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
-            const TagsList(
+            TagsList(
               numOfTechs: 3,
-              techs: [
-                'JavaScript',
-                'JavaScript',
-                'JavaScript',
-                'JavaScript',
-                'JavaScript',
-                'JavaScript',
-                'JavaScript',
-                'JavaScript',
-                'JavaScript',
-                'JavaScript'
-              ],
+              techs: techs,
             ),
           ],
         ),

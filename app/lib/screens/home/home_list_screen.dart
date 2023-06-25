@@ -44,7 +44,7 @@ class HomeList extends StatelessWidget {
                 developerName: 'Manoel Gomes',
                 position: 'Desenvolvedor Fullstack',
                 location: 'Maranhão, Brasil',
-                tags: ['JavaScript', 'JavaScript', 'JavaScript', 'php'],
+                techs: ['JavaScript', 'JavaScript', 'JavaScript', 'PHP'],
               ),
               SizedBox(height: 20),
               DeveloperCard(
@@ -52,7 +52,7 @@ class HomeList extends StatelessWidget {
                 developerName: 'Manoel Gomes',
                 position: 'Desenvolvedor Fullstack',
                 location: 'Maranhão, Brasil',
-                tags: ['JavaScript', 'JavaScript', 'JavaScript'],
+                techs: ['JavaScript', 'JavaScript', 'JavaScript'],
               ),
               SizedBox(height: 20),
               DeveloperCard(
@@ -60,7 +60,7 @@ class HomeList extends StatelessWidget {
                 developerName: 'Manoel Gomes',
                 position: 'Desenvolvedor Fullstack',
                 location: 'Maranhão, Brasil',
-                tags: ['JavaScript', 'JavaScript', 'JavaScript'],
+                techs: ['JavaScript', 'JavaScript', 'JavaScript'],
               ),
               SizedBox(height: 20),
               DeveloperCard(
@@ -68,7 +68,7 @@ class HomeList extends StatelessWidget {
                 developerName: 'Manoel Gomes',
                 position: 'Desenvolvedor Fullstack',
                 location: 'Maranhão, Brasil',
-                tags: ['JavaScript', 'JavaScript'],
+                techs: ['JavaScript', 'JavaScript'],
               ),
               SizedBox(height: 20),
             ],
