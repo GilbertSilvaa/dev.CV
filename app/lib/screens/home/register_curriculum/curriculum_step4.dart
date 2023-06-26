@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
@@ -11,6 +12,6 @@ class CurriculumStep4 extends StatefulWidget {
 class _CurriculumStep4State extends State<CurriculumStep4> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container();
   }
 }

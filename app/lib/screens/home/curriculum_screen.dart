@@ -16,7 +16,7 @@ class Curruculum extends StatefulWidget {
 }
 
 class _CurruculumState extends State<Curruculum> {
-  final bool _hasCurriculum = true;
+  final bool _hasCurriculum = false;
   final bool _curriculumOwner = true;
   final bool _loadingCurriculum = false;
 
@@ -182,7 +182,12 @@ class _CurruculumState extends State<Curruculum> {
                     ),
                   ),
                   const SizedBox(height: 28),
-                  Button(title: 'Cadastrar Currículo', onPressed: () {}),
+                  Button(
+                    title: 'Cadastrar Currículo',
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/form-curriculum');
+                    },
+                  ),
                 ],
               ),
             ),

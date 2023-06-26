@@ -64,16 +64,17 @@ class _HomeState extends State<Home> {
         ? WelcomeScreen(name: _name!)
         : Scaffold(
             body: Container(
-                margin: const EdgeInsetsDirectional.only(top: 60),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      child: _captions[_pageSelected],
-                    ),
-                  ],
-                )),
+              margin: const EdgeInsetsDirectional.only(top: 60),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    child: _captions[_pageSelected],
+                  ),
+                ],
+              ),
+            ),
             bottomNavigationBar: Container(
               color: const Color(0xff2C2A42),
               child: Padding(
