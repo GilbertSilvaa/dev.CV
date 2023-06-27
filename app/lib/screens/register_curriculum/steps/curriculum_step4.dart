@@ -34,8 +34,7 @@ class _CurriculumStep4State extends State<CurriculumStep4> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height *
-          0.7, // Definindo a altura como 70% da tela
+      height: MediaQuery.of(context).size.height * 0.7,
       child: Center(
         child: Container(
           height: 480,
@@ -75,10 +74,8 @@ class _CurriculumStep4State extends State<CurriculumStep4> {
                           style: ElevatedButton.styleFrom(
                             shape: const CircleBorder(),
                             padding: const EdgeInsets.all(2.0),
-                            backgroundColor:
-                                Colors.blue, // Cor de fundo do botão
+                            backgroundColor: Colors.blue,
                             foregroundColor: Colors.white,
-                            // Cor do texto do botão
                           ),
                           child: FittedBox(
                             fit: BoxFit.fitWidth,
