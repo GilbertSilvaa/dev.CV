@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class CurriculumStep2 extends StatefulWidget {
   const CurriculumStep2({super.key});

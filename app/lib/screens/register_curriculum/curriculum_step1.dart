@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:dev_cv/components/input.dart';
+import '../../components/input.dart';
 
 class CurriculumStep1 extends StatefulWidget {
   const CurriculumStep1({super.key});
@@ -158,6 +158,7 @@ class _CurriculumStep1State extends State<CurriculumStep1> {
             ),
           ),
         ),
+        const SizedBox(height: 20),
       ],
     );
   }

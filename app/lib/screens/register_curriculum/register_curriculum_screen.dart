@@ -55,17 +55,20 @@ class _RegisterCurriculumState extends State<RegisterCurriculum> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     _steps[_currentStep - 1],
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 30),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         if (_currentStep > 1)
                           Expanded(
                             child: SizedBox(
-                              height: 50,
+                              height: 40,
                               child: ElevatedButton.icon(
                                 onPressed: _previousStep,
-                                icon: const Icon(Icons.arrow_back),
+                                icon: const Icon(
+                                  Icons.arrow_back,
+                                  size: 15,
+                                ),
                                 label: const Text('Voltar'),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: const Color(0xFF5363F5),
@@ -82,10 +85,13 @@ class _RegisterCurriculumState extends State<RegisterCurriculum> {
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 8.0),
                                 child: SizedBox(
-                                  height: 50,
+                                  height: 40,
                                   child: ElevatedButton.icon(
                                     onPressed: _nextStep,
-                                    icon: const Icon(Icons.arrow_back),
+                                    icon: const Icon(
+                                      Icons.arrow_back,
+                                      size: 15,
+                                    ),
                                     label: const Text('Avançar'),
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: const Color(0xFF5363F5),
@@ -102,14 +108,14 @@ class _RegisterCurriculumState extends State<RegisterCurriculum> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 8.0),
                               child: SizedBox(
-                                height: 50,
+                                height: 40,
                                 child: ElevatedButton(
                                   onPressed: _finish,
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color(0xff2BAE6F),
                                     foregroundColor: Colors.white,
                                   ),
-                                  child: const Text('Concluir'),
+                                  child: const Text('Finalizar'),
                                 ),
                               ),
                             ),
