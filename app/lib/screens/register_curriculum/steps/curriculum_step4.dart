@@ -61,7 +61,7 @@ class _CurriculumStep4State extends State<CurriculumStep4> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
-                      'Experiências Profissionais',
+                      'Formação Acadêmica',
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 18,
