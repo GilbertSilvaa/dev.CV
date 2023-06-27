@@ -8,14 +8,14 @@ import 'package:dev_cv/components/top_button.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 
-class Curruculum extends StatefulWidget {
-  const Curruculum({super.key});
+class Curriculum extends StatefulWidget {
+  const Curriculum({super.key});
 
   @override
-  State<Curruculum> createState() => _CurruculumState();
+  State<Curriculum> createState() => _CurriculumState();
 }
 
-class _CurruculumState extends State<Curruculum> {
+class _CurriculumState extends State<Curriculum> {
   final bool _hasCurriculum = false;
   final bool _curriculumOwner = true;
   final bool _loadingCurriculum = false;

@@ -1,5 +1,7 @@
-import 'package:dev_cv/components/input.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+
+import '../../../components/input.dart';
 
 class CurriculumStep1 extends StatefulWidget {
   const CurriculumStep1({super.key});
@@ -50,10 +52,18 @@ class _CurriculumStep1State extends State<CurriculumStep1> {
       children: [
         Container(
           margin: const EdgeInsets.all(5),
+          padding: const EdgeInsetsDirectional.all(5),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            color: const Color(0xFF2C2A42),
-          ),
+              borderRadius: BorderRadius.circular(28),
+              color: const Color(0xFF2C2A42),
+              boxShadow: const [
+                BoxShadow(
+                  offset: Offset(0, 9),
+                  spreadRadius: -4,
+                  blurRadius: 13,
+                  color: Color.fromRGBO(0, 15, 5, 0.15),
+                )
+              ]),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Column(
@@ -87,10 +97,18 @@ class _CurriculumStep1State extends State<CurriculumStep1> {
         const SizedBox(height: 20),
         Container(
           margin: const EdgeInsets.all(5),
+          padding: const EdgeInsetsDirectional.all(5),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            color: const Color(0xFF2C2A42),
-          ),
+              borderRadius: BorderRadius.circular(28),
+              color: const Color(0xFF2C2A42),
+              boxShadow: const [
+                BoxShadow(
+                  offset: Offset(0, 9),
+                  spreadRadius: -4,
+                  blurRadius: 13,
+                  color: Color.fromRGBO(0, 15, 5, 0.15),
+                )
+              ]),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Column(

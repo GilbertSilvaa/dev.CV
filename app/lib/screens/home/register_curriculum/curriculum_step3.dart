@@ -12,6 +12,8 @@ class CurriculumStep3 extends StatefulWidget {
 class _CurriculumStep3State extends State<CurriculumStep3> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Text('passo 3'),
+    );
   }
 }

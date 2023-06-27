@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: '/home',
+      initialRoute: '/form-curriculum',
       routes: {
         '/index': (context) => const Index(),
         '/login': (context) => const LoginScreen(),

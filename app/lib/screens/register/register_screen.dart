@@ -138,7 +138,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       offset: Offset(0, 9),
                       spreadRadius: -4,
                       blurRadius: 13,
-                      color: Color.fromRGBO(0, 0, 0, 0.3),
+                      color: Color.fromRGBO(0, 15, 5, 0.15),
                     )
                   ],
                 ),
