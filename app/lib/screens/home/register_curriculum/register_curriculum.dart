@@ -19,7 +19,6 @@ class _RegisterCurriculumState extends State<RegisterCurriculum> {
     CurriculumStep2(),
     CurriculumStep3(),
     CurriculumStep4(),
-    CurriculumStep5()
   ];
   int _currentStep = 1;
 
@@ -122,7 +121,10 @@ class _RegisterCurriculumState extends State<RegisterCurriculum> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        StepList(currentStep: _currentStep),
+                        StepList(
+                          currentStep: _currentStep,
+                          totalSteps: _steps.length,
+                        ),
                       ],
                     ),
                     const SizedBox(height: 40),
