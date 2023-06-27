@@ -6,7 +6,7 @@ import 'package:dev_cv/components/input_password.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:dev_cv/screens/register/register_screen.dart';
+import 'package:dev_cv/screens/register_account/register_account_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

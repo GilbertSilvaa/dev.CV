@@ -1,9 +1,8 @@
 import 'package:dev_cv/components/step_list.dart';
-import 'package:dev_cv/screens/home/register_curriculum/curriculum_step1.dart';
-import 'package:dev_cv/screens/home/register_curriculum/curriculum_step2.dart';
-import 'package:dev_cv/screens/home/register_curriculum/curriculum_step3.dart';
-import 'package:dev_cv/screens/home/register_curriculum/curriculum_step4.dart';
-import 'package:dev_cv/screens/home/register_curriculum/curriculum_step5.dart';
+import 'package:dev_cv/screens/register_curriculum/steps/curriculum_step1.dart';
+import 'package:dev_cv/screens/register_curriculum/steps/curriculum_step2.dart';
+import 'package:dev_cv/screens/register_curriculum/steps/curriculum_step3.dart';
+import 'package:dev_cv/screens/register_curriculum/steps/curriculum_step4.dart';
 import 'package:flutter/material.dart';
 
 class RegisterCurriculum extends StatefulWidget {
@@ -75,7 +74,7 @@ class _RegisterCurriculumState extends State<RegisterCurriculum> {
                               ),
                             ),
                           ),
-                        if (_currentStep < 5)
+                        if (_currentStep < _steps.length)
                           Expanded(
                             child: Directionality(
                               textDirection: TextDirection.rtl,
@@ -97,7 +96,7 @@ class _RegisterCurriculumState extends State<RegisterCurriculum> {
                               ),
                             ),
                           ),
-                        if (_currentStep == 5)
+                        if (_currentStep == _steps.length)
                           Expanded(
                             child: Padding(
                               padding:

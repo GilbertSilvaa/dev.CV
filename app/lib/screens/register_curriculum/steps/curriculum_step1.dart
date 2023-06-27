@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-import '../../../components/input.dart';
+import 'package:dev_cv/components/input.dart';
 
 class CurriculumStep1 extends StatefulWidget {
   const CurriculumStep1({super.key});

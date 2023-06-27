@@ -1,7 +1,7 @@
 import 'package:dev_cv/screens/data/education_view_screen.dart';
 import 'package:dev_cv/screens/data/jobs_view_screen.dart';
 import 'package:dev_cv/screens/data/techs_view_screen.dart';
-import 'package:dev_cv/screens/home/register_curriculum/register_curriculum.dart';
+import 'package:dev_cv/screens/register_curriculum/register_curriculum_screen.dart';
 import 'package:dev_cv/screens/home/welcome_screen.dart';
 import 'package:dev_cv/screens/index.dart';
 import 'package:flutter/material.dart';
