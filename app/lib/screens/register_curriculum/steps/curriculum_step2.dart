@@ -91,7 +91,8 @@ class _CurriculumStep2State extends State<CurriculumStep2> {
                                   color: const Color(0xffB49AFF),
                                   borderRadius: BorderRadius.circular(36),
                                 ),
-                                padding: const EdgeInsets.all(8),
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 4, horizontal: 8),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
@@ -117,12 +118,10 @@ class _CurriculumStep2State extends State<CurriculumStep2> {
                                       ),
                                       child: GestureDetector(
                                         onTap: () => removeTag(tag),
-                                        child: Container(
-                                          child: const Icon(
-                                            Icons.close,
-                                            color: Colors.white,
-                                            size: 13,
-                                          ),
+                                        child: const Icon(
+                                          Icons.close,
+                                          color: Colors.white,
+                                          size: 13,
                                         ),
                                       ),
                                     ),
