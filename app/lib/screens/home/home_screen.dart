@@ -14,7 +14,6 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   late SharedPreferences prefs;
-  final _captions = const [HomeList(), Curriculum()];
   String? _name;
   int _pageSelected = 0;
   bool _logout = false;
@@ -60,6 +59,8 @@ class _HomeState extends State<Home> {
     final args =
         ModalRoute.of(context)!.settings.arguments as Map<String, bool>?;
 
+    final captions = [const HomeList(), const Curriculum()];
+
     return args?['isFirstTime'] != null
         ? WelcomeScreen(name: _name!)
         : Scaffold(
@@ -70,7 +71,7 @@ class _HomeState extends State<Home> {
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.9,
-                    child: _captions[_pageSelected],
+                    child: captions[_pageSelected],
                   ),
                 ],
               ),

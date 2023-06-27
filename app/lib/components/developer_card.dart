@@ -40,7 +40,7 @@ class DeveloperCard extends StatelessWidget {
                   ),
                   child: CircleAvatar(
                     radius: 40,
-                    backgroundImage: AssetImage(avatarImagePath),
+                    backgroundImage: NetworkImage(avatarImagePath),
                   ),
                 ),
                 const SizedBox(width: 16),
