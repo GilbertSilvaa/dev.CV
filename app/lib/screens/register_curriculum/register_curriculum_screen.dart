@@ -61,18 +61,22 @@ class _RegisterCurriculumState extends State<RegisterCurriculum> {
                       children: [
                         if (_currentStep > 1)
                           Expanded(
-                            child: SizedBox(
-                              height: 40,
-                              child: ElevatedButton.icon(
-                                onPressed: _previousStep,
-                                icon: const Icon(
-                                  Icons.arrow_back,
-                                  size: 15,
-                                ),
-                                label: const Text('Voltar'),
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(0xFF5363F5),
-                                  foregroundColor: Colors.white,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10.0),
+                              child: SizedBox(
+                                height: 40,
+                                child: ElevatedButton.icon(
+                                  onPressed: _previousStep,
+                                  icon: const Icon(
+                                    Icons.arrow_back,
+                                    size: 15,
+                                  ),
+                                  label: const Text('Voltar'),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: const Color(0xFF5363F5),
+                                    foregroundColor: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),
@@ -82,8 +86,8 @@ class _RegisterCurriculumState extends State<RegisterCurriculum> {
                             child: Directionality(
                               textDirection: TextDirection.rtl,
                               child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 10.0),
                                 child: SizedBox(
                                   height: 40,
                                   child: ElevatedButton.icon(
@@ -106,7 +110,7 @@ class _RegisterCurriculumState extends State<RegisterCurriculum> {
                           Expanded(
                             child: Padding(
                               padding:
-                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                                  const EdgeInsets.symmetric(horizontal: 10.0),
                               child: SizedBox(
                                 height: 40,
                                 child: ElevatedButton(

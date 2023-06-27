@@ -34,8 +34,7 @@ class _CurriculumStep3State extends State<CurriculumStep3> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height *
-          0.7, // Definindo a altura como 70% da tela
+      height: MediaQuery.of(context).size.height * 0.7,
       child: Center(
         child: Container(
           height: 480,
@@ -69,33 +68,33 @@ class _CurriculumStep3State extends State<CurriculumStep3> {
                     ),
                     if (_numberOfJobs > 0)
                       SizedBox(
-                        height: 25,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            shape: const CircleBorder(),
-                            padding: const EdgeInsets.all(2.0),
-                            backgroundColor:
-                                Colors.blue, // Cor de fundo do botão
-                            foregroundColor: Colors.white,
-                            // Cor do texto do botão
-                          ),
-                          child: FittedBox(
-                            fit: BoxFit.fitWidth,
-                            child: Builder(
-                              builder: (BuildContext context) {
-                                return Text(
-                                  _numberOfJobs.toString(),
-                                  style: const TextStyle(fontSize: 16),
-                                );
-                              },
+                        height: 35,
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Container(
+                            padding: const EdgeInsets.all(8.0),
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.blue,
+                            ),
+                            child: FittedBox(
+                              fit: BoxFit.fitWidth,
+                              child: Builder(
+                                builder: (BuildContext context) {
+                                  return Text(
+                                    _numberOfJobs.toString(),
+                                    style: const TextStyle(
+                                        fontSize: 10, color: Colors.white),
+                                  );
+                                },
+                              ),
                             ),
                           ),
                         ),
                       )
                   ],
                 ),
-                const SizedBox(height: 25),
+                const SizedBox(height: 18),
                 Column(
                   children: [
                     Input(
@@ -105,7 +104,7 @@ class _CurriculumStep3State extends State<CurriculumStep3> {
                     ),
                     Input(
                       title: 'Período',
-                      placeholder: 'Período',
+                      placeholder: '1999 - 1999',
                       controller: _periodController,
                     ),
                     Input(
