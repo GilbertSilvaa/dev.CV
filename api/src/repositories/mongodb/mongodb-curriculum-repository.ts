@@ -39,10 +39,11 @@ export class MongodbCurriculumRepository implements CurriculumRepository {
   async getByName(name: string) {
     const curriculumsResponse = await CurriculumModel.find({
       name: {
-        $regex: `.*${name}.*`
+        $regex: `.*${name}.*`, 
+        $options:'i'
       }
     })
-    .populate('technologies');
+    .populate('technologies').limit(10);
 
     return curriculumsResponse;
   }
