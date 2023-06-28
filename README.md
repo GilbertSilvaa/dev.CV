@@ -1,6 +1,6 @@
 <div align="center">
-<h2><img src="./.github/logo.png" alt="Proffy" width="200"></h2>
-<h3>Sua plataforma de estudos online</h3>
+<div><img src="./.github/logo.png" alt="Proffy" width="200"></div>
+<h3>Aplicativo para cadastro de currículos</h3>
 </div>
 
 <hr>
