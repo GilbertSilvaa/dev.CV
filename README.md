@@ -2,6 +2,8 @@
 <div><img src="./.github/logo.png" alt="Proffy" width="200"></div>
 </div>
 
+<br>
+
 Aplicativo desenvolvido como projeto final para disciplina de Programação para Dispositivos Móveis. Tem como objetivo cadastrar currículos de desenvolvedores.
 
 ## Executando localmente
