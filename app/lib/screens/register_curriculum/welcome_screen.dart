@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 class WelcomeScreen extends StatelessWidget {
   final String name;
 
-  const WelcomeScreen({Key? key, required this.name}) : super(key: key);
+  const WelcomeScreen({
+    required this.name,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +98,12 @@ class WelcomeScreen extends StatelessWidget {
                     const SizedBox(height: 36),
                     Image.asset('assets/images/welcome.png'),
                     const SizedBox(height: 36),
-                    Button(title: 'Cadastrar Currículo', onPressed: () {}),
+                    Button(
+                        title: 'Cadastrar Currículo',
+                        onPressed: () {
+                          Navigator.of(context)
+                              .pushReplacementNamed('/form-curriculum');
+                        }),
                     const SizedBox(height: 6),
                     TextButton(
                       onPressed: () {

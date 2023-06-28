@@ -38,7 +38,7 @@ class _RegisterCurriculumState extends State<RegisterCurriculum> {
   }
 
   void _finish() {
-// Lógica para concluir o processo de registro
+    Navigator.of(context).pushReplacementNamed('/home');
   }
 
   @override

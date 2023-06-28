@@ -25,8 +25,9 @@ class _IndexState extends State<Index> {
           'x-access-token': tokenAccess ?? ''
         },
       );
-
-      if (response != null && (response['auth'] as bool) == false) {
+      if (response != null &&
+          response['auth'] != null &&
+          !(response['auth'] as bool)) {
         debugPrint('não esta autenticado');
         if (context.mounted) {
           Navigator.of(context).pushReplacementNamed('/login');
